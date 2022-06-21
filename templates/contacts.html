@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+                <hr class="sidebar-divider">
+        <div style="display: flex; justify-content: space-between;">
+            <a class="btn btn-light btn-sm">Tabela osób kontaktowych</a>
+            </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>ID rekordu</th>
+                        <th>ID osoby</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>Stanowisko</th>
+                        <th>Email</th>
+                        <th>Telefon</th>
+                        <th>Firma</th>
+                        <th>Szanse</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for user in result_co.records %}
+                    <tr>
+                        <td>{{user.id}}</td>
+                        <td>{{user.fields.ID_OSOBY}}</td>
+                        <td>{{user.fields.IMIE}}</td>
+                        <td>{{user.fields.NAZWISKO}}</td>
+                        <td>{{user.fields.STANOWISKO}}</td>
+                        <td>{{user.fields.EMAIL}}</td>
+                        <td>{{user.fields.TELEFON}}</td>
+                        <td>{{user.fields.FIRMA}}</td>
+                        <td>{{user.fields.SZANSE}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
