@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <hr class="sidebar-divider">
+        <div style="display: flex; justify-content: space-between;">
+        <a href="{{ url_for('addChance') }}" class="btn btn-light btn-sm" style="color:green">+ Dodaj szansę +</a>
+            <a href="{{ url_for('addTask') }}" class="btn btn-light btn-sm" style="color:green">+ Dodaj zadanie +</a>
+            <a class="btn btn-light btn-sm">Tabela szans</a>
+            <a href="{{ url_for('deleteTask') }}" class="btn btn-light btn-sm" style="color:orange">- Usuń zadanie -</a>
+        <a href="{{ url_for('deleteChance') }}" class="btn btn-light btn-sm" style="color:orange">- Usuń szansę -</a>
+            </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>ID rekordu</th>
+                        <th>ID szansy</th>
+                        <th>Nazwa</th>
+                        <th>Właściciel</th>
+                        <th>Firma</th>
+                        <th>Osoba kontaktowa</th>
+                        <th>Data finalizacji</th>
+                        <th>Źródło</th>
+                        <th>Nazwy produktów</th>
+                        <th>Wartość</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for user in result_co.records %}
+                    <tr>
+                        <td>{{user.id}}</td>
+                        <td>{{user.fields.ID_SZANSY}}</td>
+                        <td>{{user.fields.NAZWA}}</td>
+                        <td>{{user.fields.WLASCICIEL}}</td>
+                        <td>{{user.fields.FIRMA}}</td>
+                        <td>{{user.fields.OSOBA_KONTAKTOWA}}</td>
+                        <td>{{user.fields.DATA_FINALIZACJI}}</td>
+                        <td>{{user.fields.ZRODLO}}</td>
+                        <td>{{user.fields.NAZWY_PRODUKTOW}}</td>
+                        <td>{{user.fields.WARTOSC}}</td>
+                        <td>{{user.fields.STATUS}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

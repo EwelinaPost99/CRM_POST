@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="table-responsive">
+        <div style="display: flex; justify-content: space-between;">
+            <a>Wartość zrealizowanych umów: {{wartosc_szans}}</a>
+            <hr class="sidebar-divider">
+            <a>Ilość umów (zrealizowane/łącznie): {{zrealizowane_szanse}} / {{ilosc_szans}} </a>
+            <hr class="sidebar-divider">
+        </div>
+
+        <hr class="sidebar-divider">
+
+        <div style="display: flex; justify-content: space-between;">
+            <a>Najbliższe zadanie: <br> {{nazwa_zadania}}</a>
+            <hr class="sidebar-divider">
+            <a>ID zadania: <br> {{id_zadania}}</a>
+            <hr class="sidebar-divider">
+            <a>Termin wykonania: <br> {{termin_wykonania}}</a>
+            <hr class="sidebar-divider">
+            <a>Notatki: <br> {{notatki}}</a>
+            <hr class="sidebar-divider">
+        </div>
+
+        <hr class="sidebar-divider">
+
+
+
+    </div>
+</div>
+{% endblock %}

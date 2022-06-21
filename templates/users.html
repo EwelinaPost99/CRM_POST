@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">PRACOWNICY</h1>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <a href="{{ url_for('addUser') }}" class="btn btn-primary">Dodaj użytkownika</a>
+                <a href="{{ url_for('deleteUser') }}" class="btn btn-primary">Usuń użytkownika</a>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>ID rekordu</th>
+                        <th>Team ID</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>Stanowisko</th>
+                        <th>Email</th>
+                        <th>Telefon</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for user in result1.records %}
+                    <tr>
+                        <td>{{user.id}}</td>
+                        <td>{{user.fields.TEAM_ID}}</td>
+                        <td>{{user.fields.IMIE}}</td>
+                        <td>{{user.fields.NAZWISKO}}</td>
+                        <td>{{user.fields.STANOWISKO}}</td>
+                        <td>{{user.fields.EMAIL}}</td>
+                        <td>{{user.fields.TELEFON}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
